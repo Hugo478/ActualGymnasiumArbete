@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     public float speed;
 
+    
+    
     public Transform Origin;
     public float distance = 0.5f;
 
