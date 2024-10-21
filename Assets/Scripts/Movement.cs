@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     public float speed;
 
-    
+    public string GurkRunk = "Palsternacka";
     
     public Transform Origin;
     public float distance = 0.5f;
