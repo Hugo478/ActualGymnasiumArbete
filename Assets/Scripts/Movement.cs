@@ -19,9 +19,9 @@ public class Movement : MonoBehaviour
         return Physics2D.Raycast(Origin.position, Vector2.down, distance, GroundLayer);
 
     }
-    private bool OnWall(){
-        return Physics2D.Raycast(Origin.position, new Vector2(transform.localScale.x, 0), distance, WallLayer);
-    }
+     private bool OnWall(){
+        return Physics2D.Raycast(Origin.position, transform.right, distance, WallLayer);
+     }
 
 
     private void Update()
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, speed);
         }
     
-        if(OnContact() == true){
+        if(OnContact() || OnWall() == true){
             jumps  = 1;
         }
 }
