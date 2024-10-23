@@ -7,7 +7,8 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     public float speed;
 
-    public string GurkRunk = "Palsternacka";
+    [SerializeField] private LayerMask GroundLayer;
+    [SerializeField] private LayerMask WallLayer;
     
     public Transform Origin;
     public float distance = 0.5f;
@@ -15,8 +16,11 @@ public class Movement : MonoBehaviour
     private int jumps = 0;
     public bool OnContact(){
 
-        return Physics2D.Raycast(Origin.position, Vector2.down, distance);
+        return Physics2D.Raycast(Origin.position, Vector2.down, distance, GroundLayer);
 
+    }
+    private bool OnWall(){
+        return Physics2D.Raycast(Origin.position, new Vector2(transform.localScale.x, 0), distance, WallLayer);
     }
 
 
